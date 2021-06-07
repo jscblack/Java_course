@@ -1,14 +1,18 @@
 /*
  * @Author       : Gehrychiang
- * @LastEditTime : 2021-04-28 19:26:01
+ * @LastEditTime : 2021-06-07 17:30:54
  * @Website      : www.yilantingfeng.site
  * @E-mail       : gehrychiang@aliyun.com
  * @ProbTitle    : (记得补充题目标题)
  */
+
 import java.util.Scanner;
 
 class DangerException extends Exception {
     //starts
+    public void printMessage() {
+        System.out.printf("超重\n");
+    }
     //end
 }
 
@@ -44,11 +48,10 @@ public class Main {
                 ship.loading(m);
                 System.out.printf("目前装载了%d吨货物\n", ship.realContent);
             }
-
             //end
         } catch (DangerException e) {
             //starts
-            System.out.printf("超重\n");
+            e.printMessage();
             System.out.printf("无法再装载重量是%d吨的集装箱\n", m);
             //end
         } finally {

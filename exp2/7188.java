@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 public class Main {
-
     public static void main(String[] args) {
         Student stu=new Student();
         Scanner rd=new Scanner(System.in);

@@ -1,46 +1,49 @@
-/*
- * @Author       : Gehrychiang
- * @LastEditTime : 2021-05-12 16:42:31
- * @Website      : www.yilantingfeng.site
- * @E-mail       : gehrychiang@aliyun.com
- * @ProbTitle    : (记得补充题目标题)
+/**
+ * Created on 2021/6/7.
+ *
+ * @author Gehry chiang
  */
+
+import java.util.*;
+
 public class Main {
     public static void main(String[] args) {
-        Running runner=new Running();
-        Thread thread=new Thread(runner,"乌龟");
-        Thread thread1=new Thread(runner,"兔子");
-        thread.start();
-        thread1.start();
+        runRtTr RunRtTr = new runRtTr();
+        Thread rabbit = new Thread(RunRtTr, "Rabbit");
+        Thread tortoise = new Thread(RunRtTr, "Tortoise");
+        rabbit.start();
+        tortoise.start();
     }
 }
-class Running implements Runnable{
-    int N=100;
-    int wugui=0;
-    int tuzi=0;
+
+class runRtTr implements Runnable {
+    volatile int rbleftDistence = 100;
+    volatile int toleftDistence = 100;
+
     @Override
     public void run() {
-        if(Thread.currentThread().getName().equals("乌龟")){
-            for(;wugui<N;wugui+=1){
-                System.out.print("乌龟 left "+(N-wugui)+" ");
-                System.out.println(wugui>tuzi?"领先":"落后");
-            }
-            System.out.println("乌龟到达****************");
-        }
-        if(Thread.currentThread().getName().equals("兔子")){
-            for(;tuzi<N;tuzi+=10){
-                System.out.print("兔子 left "+(N-tuzi)+" ");
-                System.out.println(tuzi>wugui?"领先":"落后");
-                if(tuzi>wugui){
-                    System.out.println("我跑得快，睡一觉");
+        if (Thread.currentThread().getName().equals("Rabbit")) {
+            while (rbleftDistence > 0) {
+                if (toleftDistence <= rbleftDistence) {
+                    System.out.println("Rabbit start run. Current leftDistance is " + rbleftDistence);
+                    rbleftDistence -= 10;
+                } else {
+                    System.out.println("Rabbit take a rest. Current leftDistance is " + rbleftDistence + " ahead of Tortoise who is " + toleftDistence);
                     try {
                         Thread.sleep(100);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
+
                 }
             }
-            System.out.println("兔子到达**************************");
+            System.out.println("Rabbit Finish!");
+        } else if (Thread.currentThread().getName().equals("Tortoise")) {
+            while (toleftDistence > 0) {
+                System.out.println("Tortoise start run. Current leftDistance is " + toleftDistence);
+                toleftDistence -= 1;
+            }
+            System.out.println("Tortoise Finish!");
         }
     }
 }

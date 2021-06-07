@@ -1,49 +1,38 @@
-/*
- * @Author       : Gehrychiang
- * @LastEditTime : 2021-05-12 17:00:12
- * @Website      : www.yilantingfeng.site
- * @E-mail       : gehrychiang@aliyun.com
- * @ProbTitle    : (记得补充题目标题)
+/**
+ * Created on 2021/6/7.
+ *
+ * @author Gehry chiang
  */
+
+import java.util.*;
+import java.math.*;
 public class Main {
-    public static String[] name={"A","B","C","D","E","F","G","H","I","J"};
     public static void main(String[] args) {
-        Running runner=new Running();
-        for (int i=0;i<10;i++) {
-            System.out.println(name[i]);
-            Thread thread = new Thread(runner, name[i]);
-            thread.start();
+        CrossRiver crossRiver=new CrossRiver();
+        List<String>personList=new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            personList.add("Person "+Math.abs(new Random().nextInt())%100+1);
         }
+        Collections.shuffle(personList);
+        for (int i = 0; i < 10; i++) {
+            new Thread(crossRiver,personList.get(i)).start();
+        }
+        System.out.println("过河人员随机完毕");
     }
 }
-class Running implements Runnable{
-    boolean occu=false;
+
+class CrossRiver implements Runnable {
+
     @Override
     public void run() {
-        for (int i = 0; i < 10; i++) {
-            if(Thread.currentThread().getName().equals(Main.name[i])){
-                System.out.println(Main.name[i]+"等待过河");
-                while(cross()==false){
-
-                }
-                System.out.println(Main.name[i]+"开始过河");
-                try {
-                    Thread.sleep(5000);
-                }catch (InterruptedException e){
-
-                }
-                System.out.println(Main.name[i]+"过河完成");
-                occu=false;
-
+        synchronized (this){
+            System.out.println(Thread.currentThread().getName()+"开始过河");
+            try{
+                Thread.sleep(500);
+            }catch (InterruptedException e){
+                System.err.println(e);
             }
-        }
-    }
-    synchronized boolean cross(){
-        if(occu==false) {
-            occu = true;
-            return true;
-        }else{
-            return false;
+            System.out.println(Thread.currentThread().getName()+"过河完毕");
         }
     }
 }
