@@ -6,6 +6,7 @@
  * @ProbTitle    : (记得补充题目标题)
  */
 import java.util.Scanner;
+
 class Dog{
     private String name;
     private String color;
@@ -50,7 +51,5 @@ public class Main {
         d2=new Dog(rd.next(),rd.next(),rd.nextInt());
         System.out.println("name=" + d1.getName() + ",color=" +d1.getcolor()+",age="+d1.getAge());
         System.out.println("name=" + d2.getName() + ",color=" +d2.getcolor()+",age="+d2.getAge());
-
     }
-
 }

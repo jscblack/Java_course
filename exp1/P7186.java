@@ -1,7 +1,7 @@
 
 /*
  * @Author       : Gehrychiang
- * @LastEditTime : 2021-06-07 18:47:04
+ * @LastEditTime : 2021-06-15 20:30:12
  * @Website      : www.yilantingfeng.site
  * @E-mail       : gehrychiang@aliyun.com
  * @ProbTitle    : (记得补充题目标题)
@@ -9,7 +9,6 @@
 import java.util.Scanner;
 
 public class P7186 {
-
     public static void main(String[] args) {
         // write your code here
         int a[] = { -2, 1, 4, 5, 8, 12, 17, 23, 45, 56, 90, 100 };

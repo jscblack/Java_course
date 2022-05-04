@@ -1,6 +1,6 @@
 /*
  * @Author       : Gehrychiang
- * @LastEditTime : 2021-06-07 17:30:54
+ * @LastEditTime : 2021-06-16 13:58:29
  * @Website      : www.yilantingfeng.site
  * @E-mail       : gehrychiang@aliyun.com
  * @ProbTitle    : (记得补充题目标题)
@@ -9,29 +9,29 @@
 import java.util.Scanner;
 
 class DangerException extends Exception {
-    //starts
+    // starts
     public void printMessage() {
         System.out.printf("超重\n");
     }
-    //end
+    // end
 }
 
 class CargoBoat {
-    int realContent;  //装载的重量
-    int maxContent;   //最大装载量
+    int realContent; // 装载的重量
+    int maxContent; // 最大装载量
 
     public void setMaxContent(int c) {
         maxContent = c;
     }
 
     public void loading(int m) throws DangerException {
-        //starts
+        // starts
         if (realContent + m <= maxContent) {
             realContent += m;
         } else {
             throw new DangerException();
         }
-        //end
+        // end
     }
 }
 
@@ -42,18 +42,18 @@ public class Main {
         ship.setMaxContent(1000);
         int m = 0;
         try {
-            //starts
+            // starts
             while (s.hasNextInt()) {
                 m = s.nextInt();
                 ship.loading(m);
                 System.out.printf("目前装载了%d吨货物\n", ship.realContent);
             }
-            //end
-        } catch (DangerException e) {
-            //starts
+            // end
+        } catch (DangerException e) {   
+            // starts
             e.printMessage();
             System.out.printf("无法再装载重量是%d吨的集装箱\n", m);
-            //end
+            // end
         } finally {
             System.out.printf("货船将正点启航");
         }

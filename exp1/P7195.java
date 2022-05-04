@@ -1,7 +1,7 @@
 
 /*
  * @Author       : Gehrychiang
- * @LastEditTime : 2021-06-07 18:47:13
+ * @LastEditTime : 2021-06-15 20:28:33
  * @Website      : www.yilantingfeng.site
  * @E-mail       : gehrychiang@aliyun.com
  * @ProbTitle    : (记得补充题目标题)
@@ -9,7 +9,6 @@
 import java.util.*;
 
 public class P7195 {
-
     public static void main(String[] args) {
         int number, digit1, digit2, digit3, digit4, newnum;
         Scanner scanner = new Scanner(System.in);
@@ -31,5 +30,4 @@ public class P7195 {
         System.out.println("The encrypted number is " + newnum);
         scanner.close();
     }
-
 }

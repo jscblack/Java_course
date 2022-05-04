@@ -1,7 +1,7 @@
 
 /*
  * @Author       : Gehrychiang
- * @LastEditTime : 2021-06-07 18:46:55
+ * @LastEditTime : 2021-06-15 20:29:50
  * @Website      : www.yilantingfeng.site
  * @E-mail       : gehrychiang@aliyun.com
  * @ProbTitle    : (记得补充题目标题)
@@ -10,7 +10,6 @@ import java.util.Scanner;
 
 public class P7194 {
     public static void main(String[] args) {
-
         // write your own codes
         Scanner rd = new Scanner(System.in);
         int t = rd.nextInt();

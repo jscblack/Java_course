@@ -1,3 +1,10 @@
+/*
+ * @Author       : Gehrychiang
+ * @LastEditTime : 2021-06-15 21:26:03
+ * @Website      : www.yilantingfeng.site
+ * @E-mail       : gehrychiang@aliyun.com
+ * @ProbTitle    : (记得补充题目标题)
+ */
 package com.experiment04.service;
 
 import com.experiment04.entity.Student;
@@ -7,9 +14,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-//on class
-//fucking java
-//
 public class StudentServiceImpl implements StudentService {
     public List<Student> addStudent(Student student) {
         List<Student> Stus = DatabaseUtils.getStudents();
